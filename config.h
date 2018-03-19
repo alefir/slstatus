@@ -51,12 +51,16 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ run_command,    "%s ",              "mpc -f '%title% - %artist%' | head -n 1"},
-	{ run_command,    "%s <<|<< ",        "mpc status | grep -o '   .*/.* ' | sed 's/ //g'"},
-	{ run_command,    "VOL %s <<|<< ",    "mpc status | tail -n 1 | grep -o '[0-9]*%'"},
-	{ wifi_essid,     "wlan0 %s ",        "wlan0"      },
-	{ wifi_perc,      "%s%% <<|<< ",      "wlan0"      },
-	{ cpu_perc,       "CPU %2s%% <<|<< ", NULL         },
-	{ ram_perc,       "RAM %2s%% <<|<< ", NULL         },
-	{ datetime,       " %s <",            "%A %FT%T%z" },
+//	{ run_command,    "%s ",              "mpc -f '%title% - %artist%' | head -n 1"},
+//	{ run_command,    "%s <<|<< ",        "mpc status | grep -o '   .*/.* ' | sed 's/ //g'"},
+//	{ run_command,    "VOL %s <<|<< ",    "mpc status | tail -n 1 | grep -o '[0-9]*%'"},
+	{ wifi_essid,     "wlp3s0 %s ",       "wlp3s0"     },
+	{ wifi_perc,      "%s%%  ][  ",       "wlp3s0"     },
+	{ disk_free,      "/home %6s  ",      "/home"      },
+	{ disk_free,      "/ %4s  ][  ",      "/"          },
+	{ battery_perc,   "BAT %2s%%  ][  ",  "BAT0"       },
+	{ cpu_perc,       "CPU %2s%% ",       NULL         },
+	{ temp,           "%sC  ][  ",        "/sys/class/thermal/thermal_zone0/temp"},
+	{ ram_perc,       "RAM %2s%%  ][  ",  NULL         },
+	{ datetime,       "%s <",             "%A %FT%T%z" },
 };
